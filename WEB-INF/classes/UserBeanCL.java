@@ -18,6 +18,36 @@ public class UserBeanCL {
 	private int pageCount = 0;// 共有几页，计算出来的
 
 	/**
+	 *  修改用户
+	 * @param id
+	 * @param name
+	 * @param password
+	 * @param mail
+	 * @param grade
+	 * @return
+	 */
+	public boolean updateUser(int id,String password,String mail,int grade){
+
+		boolean flag = false;
+
+		try {
+			ConnDB connDB = new ConnDB();
+			con = connDB.getConn();
+			String sql = "UPDATE users set password='"+password+"' , mail='"+mail+"', grade='"+grade+"' WHERE id = "+id;
+
+			ps = con.prepareStatement(sql);
+			int number = ps.executeUpdate();
+			if (number == 1)
+				flag = true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+		return flag;
+	}
+	/**
 	 * 根据用户名找到 用户 头像名称
 	 *
 	 * @param name

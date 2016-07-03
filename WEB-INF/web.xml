@@ -92,4 +92,25 @@
   <url-pattern>/servlet/deluser</url-pattern>
 </servlet-mapping>
 
+
+<servlet>
+ <servlet-name>update</servlet-name>
+ <servlet-class>tomcat.Update</servlet-class>
+</servlet>
+
+　<servlet-mapping>
+ <servlet-name>update</servlet-name>
+ <url-pattern>/servlet/update</url-pattern>
+</servlet-mapping>
+
+<servlet>
+ <servlet-name>updatecl</servlet-name>
+ <servlet-class>tomcat.UpdateCL</servlet-class>
+</servlet>
+
+　<servlet-mapping>
+ <servlet-name>updatecl</servlet-name>
+ <url-pattern>/servlet/updatecl</url-pattern>
+</servlet-mapping>
+
 </web-app>

@@ -114,7 +114,7 @@ public class Welcome extends HttpServlet {
 				pw.println("<td>" +ub.getPassword() + "</td>");
 				pw.println("<td>" + ub.getMail() + "</td>");
 				pw.println("<td>" +ub.getGrade() + "</td>");
-				pw.println("<td><a href=modifyuser?id="+ub.getId()+">修改用户</a></td>");
+				pw.println("<td><a href=update?id="+ub.getId()+"&name="+ub.getUser()+"&password="+ub.getPassword()+"&mail="+ub.getMail()+"&grade="+ub.getGrade()+">修改用户</a></td>");
 				pw.println("<td><a href=deluser?id="+ub.getId()+" onclick=\"return window.confirm('确认删除用户')\" >删除用户</a></td>");
 
 				pw.println("</tr>");
