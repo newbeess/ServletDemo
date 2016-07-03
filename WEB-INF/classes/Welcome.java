@@ -97,7 +97,7 @@ public class Welcome extends HttpServlet {
 			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=main>返回主界面</a>");
 			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=login>安全退出</a>");
 
-			pw.println("<center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎 " + name + "<img src=imgs/"+picture+"></center><br>");
+			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎 " + name + "<img src=imgs/"+picture+"><br>");
 
 			pw.println("<hr><h1 ><center>管理用户</center></h1>");
 
@@ -129,7 +129,11 @@ public class Welcome extends HttpServlet {
 			for (int i = 1; i <= pageCount; i++)
 				pw.println("<a href=welcome?pageNoww=" + i + ">" + i + "</a>");
 			if (pageNow != pageCount)
-				pw.println("<a href=welcome?pageNoww=" + (pageNow + 1) + ">下一页</a></center>");
+				pw.println("<a href=welcome?pageNoww=" + (pageNow + 1) + ">下一页</a>");
+			// 跳转到某一页
+			pw.println("<form action=welcome method=get>");
+			pw.println("<br><br>跳转到：<input type=text name=pageNoww>");
+			pw.println("<input type=submit value=Go></form></center><br>");
 
 			pw.println("<br><hr><img src=imgs/logo1.gif>");
 			pw.println("<br><center>您的IP为："+req.getRemoteAddr());
