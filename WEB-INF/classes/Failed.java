@@ -25,12 +25,12 @@ public class Failed extends HttpServlet {
 			PrintWriter pw = res.getWriter();
 			pw.println("<html>");
 			pw.println("<head>");
-			pw.println("<img src=imgs/5.jpg><hr>");
+			pw.println("<img src=imgs/logo1.gif><hr>");
 			pw.println("<h1><center>删除失败</center></h1>");
 			pw.println("</head>");
 			pw.println("<body bgcolor=#1A94E6><center>");
 
-			pw.println("<br><hr><img src=imgs/5.jpg>");
+			pw.println("<br><hr><img src=imgs/logo1.gif>");
 			pw.println("</body>");
 			pw.println("</html>");
 		} catch (Exception e ){

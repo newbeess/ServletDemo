@@ -25,8 +25,11 @@ public class Main extends HttpServlet {
 			PrintWriter pw = res.getWriter();
 			pw.println("<html>");
 			pw.println("<head>");
-			pw.println("<img src=imgs/5.jpg><hr>");
-			pw.println("<h1><center>" + "主界面" + "</center></h1>");
+			pw.println("<img src=imgs/logo1.gif>");
+			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=main>返回主界面</a>");
+			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=login>安全退出</a>");
+
+			pw.println("<hr><h1><center>" + "主界面" + "</center></h1>");
 			pw.println("</head>");
 			pw.println("<body bgcolor=#1A94E6><center>");
 
@@ -35,7 +38,7 @@ public class Main extends HttpServlet {
 			pw.println("<a href=?>查找用户</a><br>");
 			pw.println("<a href=?>安全退出</a><br></center>");
 
-			pw.println("<br><hr><img src=imgs/5.jpg>");
+			pw.println("<br><hr><img src=imgs/logo1.gif>");
 			pw.println("</body>");
 			pw.println("</html>");
 		} catch (Exception e) {

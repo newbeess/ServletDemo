@@ -86,21 +86,24 @@ public class Welcome extends HttpServlet {
 			}
 			UserBeanCL ubc=new UserBeanCL();
 			ArrayList arrayList=ubc.getResultByPage(pageNow,pageSize);
+			String picture=ubc.getIdByUserName(name);
+
 
 			pw.println("<html>");
 			pw.println("<head>");
-			pw.println("<img src=imgs/5.jpg><hr>");
-
-			pw.println("<h1 ><center>管理用户</center></h1>");
 			pw.println("</head>");
-			pw.println("<body bgcolor=#1A94E6><center>");
+			pw.println("<body bgcolor=#1A94E6>");
+			pw.println("<img src=imgs/logo1.gif>");
+			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=main>返回主界面</a>");
+			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=login>安全退出</a>");
 
-			String picture=ubc.getIdByUserName(name);
+			pw.println("<center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎 " + name + " . "+"<img src=imgs/"+picture+"></center><br>");
 
-			pw.println(" 欢迎 " + name + " . "+"<img src=imgs/"+picture+"><br>");
-			pw.println("<br><a href=login>返回重新登录</a><br>");
+			pw.println("<hr><h1 ><center>管理用户</center></h1>");
+
+
 			// 显示表格
-			pw.println("<table border=1>");
+			pw.println("<center><table border=1>");
 			pw.println("<tr><th>id</th><th>user</th><th>password</th><th>mail</th><th>grade</th><th>修改用户</th><th>删除用户</th></tr>");
 			for (int i=0;i<arrayList.size();i++) {
 				UserBean ub=(UserBean)arrayList.get(i);
@@ -128,7 +131,7 @@ public class Welcome extends HttpServlet {
 			pw.println("<br>您的IP为："+req.getRemoteAddr());
 			pw.println("<br>您的主机名为："+req.getRemoteHost());
 			pw.println("<br>该网页被访问了"+number+"次</center>");
-			pw.println("<br><hr><img src=imgs/5.jpg>");
+			pw.println("<br><hr><img src=imgs/logo1.gif>");
 			pw.println("</body>");
 			pw.println("</html>");
 
