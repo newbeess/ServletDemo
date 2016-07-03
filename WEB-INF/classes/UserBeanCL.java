@@ -17,6 +17,37 @@ public class UserBeanCL {
 	private ResultSet rs = null;
 	private int pageCount = 0;// 共有几页，计算出来的
 
+
+	/**
+	 *  新增用户
+	 * @param id
+	 * @param name
+	 * @param password
+	 * @param mail
+	 * @param grade
+	 * @return
+	 */
+	public boolean addUser(int id,String name,String password,String mail,int grade,String picture){
+
+		boolean flag = false;
+
+		try {
+			ConnDB connDB = new ConnDB();
+			con = connDB.getConn();
+			String sql="INSERT INTO users (id,user,password,mail,grade,picture) VALUES ("+id+",'"+name+"','"+password+"','"+mail+"',"+grade+",'"+picture+"')";
+			ps = con.prepareStatement(sql);
+			int number = ps.executeUpdate();
+			if (number == 1)
+				flag = true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+		return flag;
+	}
+
 	/**
 	 *  修改用户
 	 * @param id

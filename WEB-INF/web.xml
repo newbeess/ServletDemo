@@ -113,4 +113,23 @@
  <url-pattern>/servlet/updatecl</url-pattern>
 </servlet-mapping>
 
+<servlet>
+ <servlet-name>adduser</servlet-name>
+ <servlet-class>tomcat.AddUser</servlet-class>
+</servlet>
+
+　<servlet-mapping>
+ <servlet-name>adduser</servlet-name>
+ <url-pattern>/servlet/adduser</url-pattern>
+</servlet-mapping>
+
+<servlet>
+ <servlet-name>addusercl</servlet-name>
+ <servlet-class>tomcat.AddUserCL</servlet-class>
+</servlet>
+
+　<servlet-mapping>
+ <servlet-name>addusercl</servlet-name>
+ <url-pattern>/servlet/addusercl</url-pattern>
+</servlet-mapping>
 </web-app>

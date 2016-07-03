@@ -6,9 +6,9 @@ import java.io.*;
 import java.lang.Exception;
 
 /**
- * Created by elephant on 16/6/5.
+ * 用户修改界面
  */
-public class Main extends HttpServlet {
+public class AddUser extends HttpServlet {
 
 	/**
 	 * 用于 处理 Get 请求
@@ -27,18 +27,26 @@ public class Main extends HttpServlet {
 			pw.println("<head>");
 			pw.println("<img src=imgs/logo1.gif>");
 			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=main>返回主界面</a>");
-			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=login>安全退出</a>");
-
-			pw.println("<hr><h1><center>" + "主界面" + "</center></h1>");
+			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=login>安全退出</a><hr>");
 			pw.println("</head>");
 			pw.println("<body bgcolor=#1A94E6><center>");
 
-			pw.println("<a href=welcome>管理用户</a><br>");
-			pw.println("<a href=adduser>添加用户</a><br>");
-			pw.println("<a href=?>查找用户</a><br>");
-			pw.println("<a href=?>安全退出</a><br></center>");
 
-			pw.println("<br><hr><img src=imgs/logo1.gif>");
+			pw.println("<h1>新增用户</h1>");
+
+			pw.println("<form action=addusercl method=get>");
+			pw.println("<table border=1>");
+			pw.println("<tr><td>Id</td><td><input  type=text name=id ></td></tr>");
+			pw.println("<tr><td>User</td><td><input  type=text  name=username ></td></tr>");
+			pw.println("<tr><td>Password</td><td><input type=text name=password ></td></tr>");
+			pw.println("<tr><td>Mail</td><td><input type=text name=mail ></td></tr>");
+			pw.println("<tr><td>Grade</td><td><input type=text name=grade ></td></tr>");
+
+			pw.println("</table>");
+			pw.println("<br><input type=submit value=添加用户>");
+			pw.println("</form><br><hr>");
+
+			pw.println("</center><img src=imgs/logo1.gif>");
 			pw.println("</body>");
 			pw.println("</html>");
 		} catch (Exception e) {
