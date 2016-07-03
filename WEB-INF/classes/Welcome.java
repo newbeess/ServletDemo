@@ -97,17 +97,18 @@ public class Welcome extends HttpServlet {
 			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=main>返回主界面</a>");
 			pw.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=login>安全退出</a>");
 
-			pw.println("<center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎 " + name + " . "+"<img src=imgs/"+picture+"></center><br>");
+			pw.println("<center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎 " + name + "<img src=imgs/"+picture+"></center><br>");
 
 			pw.println("<hr><h1 ><center>管理用户</center></h1>");
 
 
 			// 显示表格
+			String[] colors={"pink","white"};
 			pw.println("<center><table border=1>");
 			pw.println("<tr><th>id</th><th>user</th><th>password</th><th>mail</th><th>grade</th><th>修改用户</th><th>删除用户</th></tr>");
 			for (int i=0;i<arrayList.size();i++) {
 				UserBean ub=(UserBean)arrayList.get(i);
-				pw.println("<tr>");
+				pw.println("<tr bgcolor="+colors[i%2]+">");
 				pw.println("<td>" + ub.getId() + "</td>");
 				pw.println("<td>" +ub.getUser() + "</td>");
 				pw.println("<td>" +ub.getPassword() + "</td>");
@@ -122,16 +123,18 @@ public class Welcome extends HttpServlet {
 			// 结束表格显示
 			int pageCount=ubc.getPageCount();
 			// 上一页，下一页
+			pw.println("<br>");
 			if (pageNow != 1)
 				pw.println("<a href=welcome?pageNoww=" + (pageNow - 1) + ">上一页</a>");
 			for (int i = 1; i <= pageCount; i++)
 				pw.println("<a href=welcome?pageNoww=" + i + ">" + i + "</a>");
 			if (pageNow != pageCount)
-				pw.println("<a href=welcome?pageNoww=" + (pageNow + 1) + ">下一页</a>");
-			pw.println("<br>您的IP为："+req.getRemoteAddr());
-			pw.println("<br>您的主机名为："+req.getRemoteHost());
-			pw.println("<br>该网页被访问了"+number+"次</center>");
+				pw.println("<a href=welcome?pageNoww=" + (pageNow + 1) + ">下一页</a></center>");
+
 			pw.println("<br><hr><img src=imgs/logo1.gif>");
+			pw.println("<br><center>您的IP为："+req.getRemoteAddr());
+			pw.println("<br>您的主机名为："+req.getRemoteHost());
+			pw.println("<br>该网页被访问了"+number+"次</center>");;
 			pw.println("</body>");
 			pw.println("</html>");
 
