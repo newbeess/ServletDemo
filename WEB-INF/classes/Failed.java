@@ -26,7 +26,7 @@ public class Failed extends HttpServlet {
 			pw.println("<html>");
 			pw.println("<head>");
 			pw.println("<img src=imgs/logo1.gif><hr>");
-			pw.println("<h1><center>删除失败</center></h1>");
+			pw.println("<h1><center>操作失败</center></h1>");
 			pw.println("</head>");
 			pw.println("<body bgcolor=#1A94E6><center>");
 

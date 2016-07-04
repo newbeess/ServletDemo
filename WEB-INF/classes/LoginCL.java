@@ -67,7 +67,7 @@ public class LoginCL extends HttpServlet {
 				// 用户合法
 				// 用户名 密码写入Session
 				HttpSession hs = req.getSession(true);
-				hs.setMaxInactiveInterval(30);// 设置存活时间 30s
+				hs.setMaxInactiveInterval(300);// 设置存活时间 30s
 				hs.setAttribute("username", name);
 				hs.setAttribute("password", password);
 
@@ -75,8 +75,8 @@ public class LoginCL extends HttpServlet {
 				if (keep != null) {
 					Cookie c1 = new Cookie("user", name);
 					Cookie c2 = new Cookie("pwd", password);
-					c1.setMaxAge(300);
-					c2.setMaxAge(300); // 设置存活时间 30s
+					c1.setMaxAge(7*24*3600);
+					c2.setMaxAge(7*24*300); // 设置存活时间 30s
 					res.addCookie(c1);
 					res.addCookie(c2);
 				}
