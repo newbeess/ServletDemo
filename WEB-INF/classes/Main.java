@@ -36,7 +36,7 @@ public class Main extends HttpServlet {
 			pw.println("<a href=welcome>管理用户</a><br>");
 			pw.println("<a href=adduser>添加用户</a><br>");
 			pw.println("<a href=searchuser>查找用户</a><br>");
-			pw.println("<a href=?>安全退出</a><br></center>");
+			pw.println("<a href=login>安全退出</a><br></center>");
 
 			pw.println("<br><hr><img src=imgs/logo1.gif>");
 			pw.println("</body>");

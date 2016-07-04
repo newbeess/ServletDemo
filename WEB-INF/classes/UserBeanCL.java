@@ -17,9 +17,51 @@ public class UserBeanCL {
 	private ResultSet rs = null;
 	private int pageCount = 0;// 共有几页，计算出来的
 
+	/**
+	 * 查找用户，精确查找 或者 模糊查找
+	 *
+	 * @param name
+	 * @param method
+	 * @return
+	 */
+	public ArrayList searchUser(String name, String method) {
+
+		ArrayList<UserBean> arrayList = new ArrayList<UserBean>();
+		try {
+
+			ConnDB connDB = new ConnDB();
+			con = connDB.getConn();
+
+			if (method.equals("jingque")) {
+				ps = con.prepareStatement("select  * from users where user='"+name+"'");
+
+			} else if (method.equals("mohu")) {
+				ps = con.prepareStatement("select  * from users where user like '%"+name+"%'");
+			}
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				// 将 rs中的每一条记录 封装到 userBean中
+				UserBean ub = new UserBean();
+				ub.setId(rs.getInt(1));
+				ub.setUser(rs.getString(2));
+				ub.setPassword(rs.getString(3));
+				ub.setMail(rs.getString(4));
+				ub.setGrade(rs.getInt(5));
+				arrayList.add(ub);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+		return arrayList;
+	}
 
 	/**
-	 *  新增用户
+	 * 新增用户
+	 *
 	 * @param id
 	 * @param name
 	 * @param password
@@ -27,14 +69,14 @@ public class UserBeanCL {
 	 * @param grade
 	 * @return
 	 */
-	public boolean addUser(int id,String name,String password,String mail,int grade,String picture){
+	public boolean addUser(int id, String name, String password, String mail, int grade, String picture) {
 
 		boolean flag = false;
 
 		try {
 			ConnDB connDB = new ConnDB();
 			con = connDB.getConn();
-			String sql="INSERT INTO users (id,user,password,mail,grade,picture) VALUES ("+id+",'"+name+"','"+password+"','"+mail+"',"+grade+",'"+picture+"')";
+			String sql = "INSERT INTO users (id,user,password,mail,grade,picture) VALUES (" + id + ",'" + name + "','" + password + "','" + mail + "'," + grade + ",'" + picture + "')";
 			ps = con.prepareStatement(sql);
 			int number = ps.executeUpdate();
 			if (number == 1)
@@ -49,7 +91,8 @@ public class UserBeanCL {
 	}
 
 	/**
-	 *  修改用户
+	 * 修改用户
+	 *
 	 * @param id
 	 * @param name
 	 * @param password
@@ -57,14 +100,14 @@ public class UserBeanCL {
 	 * @param grade
 	 * @return
 	 */
-	public boolean updateUser(int id,String password,String mail,int grade){
+	public boolean updateUser(int id, String password, String mail, int grade) {
 
 		boolean flag = false;
 
 		try {
 			ConnDB connDB = new ConnDB();
 			con = connDB.getConn();
-			String sql = "UPDATE users set password='"+password+"' , mail='"+mail+"', grade='"+grade+"' WHERE id = "+id;
+			String sql = "UPDATE users set password='" + password + "' , mail='" + mail + "', grade='" + grade + "' WHERE id = " + id;
 
 			ps = con.prepareStatement(sql);
 			int number = ps.executeUpdate();
@@ -78,6 +121,7 @@ public class UserBeanCL {
 		}
 		return flag;
 	}
+
 	/**
 	 * 根据用户名找到 用户 头像名称
 	 *
