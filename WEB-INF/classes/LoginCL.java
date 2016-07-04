@@ -75,8 +75,8 @@ public class LoginCL extends HttpServlet {
 				if (keep != null) {
 					Cookie c1 = new Cookie("user", name);
 					Cookie c2 = new Cookie("pwd", password);
-					c1.setMaxAge(30);
-					c2.setMaxAge(30); // 设置存活时间 30s
+					c1.setMaxAge(300);
+					c2.setMaxAge(300); // 设置存活时间 30s
 					res.addCookie(c1);
 					res.addCookie(c2);
 				}
