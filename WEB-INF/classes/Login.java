@@ -34,7 +34,7 @@ public class Login extends HttpServlet {
 			pw.println("<br>用户名 ：<input type=text name=username><br>");
 			pw.println("<br>密  码 ：<input type=password name=password><br>");
 			pw.println("<br><input type=checkbox name=keep value=2>一周内不再重新登陆<br>");
-			pw.println("<br><input type=submit value=登陆><>/form<br></center>");
+			pw.println("<br><input type=submit value=登陆></form><br></center>");
 			pw.println("<br><hr><img src=imgs/logo1.gif>");
 			pw.println("</body>");
 			pw.println("</html>");
